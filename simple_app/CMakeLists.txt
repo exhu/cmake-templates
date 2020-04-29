@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.17)
+project(simple_app)
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/" ${CMAKE_MODULE_PATH})
+
+add_subdirectory(src)
+add_subdirectory(app)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    include(CTest)
+    if (BUILD_TESTING)
+        add_subdirectory(test)
+    endif()
+endif()

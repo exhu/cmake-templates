@@ -1,2 +1,2 @@
 # cmake-templates
-Common cmake templates and helper scripts
+Common cmake templates and helper scripts.
