@@ -22,7 +22,7 @@ external - put external sources (dependencies) here.
 
 extern-bin - put external binaries here.
 
-include/<libname> - public headers (for a lib. project).
+include/libname - public headers (for a lib. project).
 
 src - put main program logic sources here, should produce a static library,
 which is used by executables and tests.
