@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.17)
-project(simple_app_lib)
+#cmake_minimum_required(VERSION 3.17)
+#project(simple_app_lib)
 
 set(SOURCES simple_app_lib.c
     simple_app_lib.h

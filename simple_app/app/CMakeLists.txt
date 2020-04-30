@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.17)
-project(simple_app_exe)
+#cmake_minimum_required(VERSION 3.17)
+#project(simple_app_exe)
 
 add_executable(simple_app simple_app.c)
 target_link_libraries(simple_app simple_app_lib)
