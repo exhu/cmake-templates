@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 
 # app template generation script
 if(NOT PROJ_NAME OR NOT PROJ_PATH OR NOT PROJ_TYPE)
-    message("Will create directory PROJ_PATH/PROJ_NAME and populate it with CMake and C files.")
+    message("Will create directory PROJ_PATH/PROJ_NAME and populate it with CMake and C files. Use lowercase C identifier for PROJ_NAME.")
     message(FATAL_ERROR "run as cmake -DPROJ_NAME=my_app -DPROJ_PATH=path_to_app_dir -DPROJ_TYPE=app|lib -P proj-template.cmake")
     return()
 endif()
@@ -40,13 +40,8 @@ file(WRITE "${PROJ_DIR}/.gitignore" "build/\n")
 # src, include dirs
 configure_file("${TEMPLATES_DIR}/src/CMakeLists_${PROJ_TYPE}.txt.in" "${PROJ_DIR}/src/CMakeLists.txt" @ONLY)
 
-if(PROJ_TYPE STREQUAL "app")
-    configure_file("${TEMPLATES_DIR}/src/app_lib.c" "${PROJ_DIR}/src/${PROJ_NAME}.c" @ONLY)
-    configure_file("${TEMPLATES_DIR}/include/proj_name/app_lib.h" "${PROJ_DIR}/include/${PROJ_NAME}/${PROJ_NAME}.h" @ONLY)
-else()
-# TODO lib
-
-endif()
+configure_file("${TEMPLATES_DIR}/src/app_lib.c" "${PROJ_DIR}/src/${PROJ_NAME}.c" @ONLY)
+configure_file("${TEMPLATES_DIR}/include/proj_name/app_lib.h" "${PROJ_DIR}/include/${PROJ_NAME}/${PROJ_NAME}.h" @ONLY)
 
 # test dir
 configure_file("${TEMPLATES_DIR}/test/CMakeLists.txt.in" "${PROJ_DIR}/test/CMakeLists.txt" @ONLY)
@@ -54,7 +49,7 @@ configure_file("${TEMPLATES_DIR}/test/test1.c" "${PROJ_DIR}/test/test1.c" @ONLY)
 configure_file("${TEMPLATES_DIR}/test/test2.c" "${PROJ_DIR}/test/test2.c" @ONLY)
 
 # app/examples dirs
-configure_file("${TEMPLATES_DIR}/app/CMakeLists.txt.in" "${PROJ_DIR}/${APP_DIR_NAME}/CMakeLists.txt" @ONLY)
+configure_file("${TEMPLATES_DIR}/app/CMakeLists_${PROJ_TYPE}.txt.in" "${PROJ_DIR}/${APP_DIR_NAME}/CMakeLists.txt" @ONLY)
 configure_file("${TEMPLATES_DIR}/app/main.c" "${PROJ_DIR}/${APP_DIR_NAME}/main.c" @ONLY)
 
 message(STATUS "Finished.")

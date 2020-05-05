@@ -1,0 +1,4 @@
+add_executable(@PROJ_NAME@_app main.c)
+set_target_properties(@PROJ_NAME@_app PROPERTIES OUTPUT_NAME @PROJ_NAME@)
+target_link_libraries(@PROJ_NAME@_app @PROJ_NAME@_lib)
+target_compile_features(@PROJ_NAME@_app PUBLIC c_std_99)
