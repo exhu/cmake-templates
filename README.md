@@ -36,8 +36,10 @@ generate a new library or app project.
 ## helpers/proj-template.cmake
 A standalone cmake script to generate cmake and c files for a new project.
 Run as cmake -DPROJ_NAME=my_proj_name -DPROJ_PATH=path_to_app_dir -DPROJ_TYPE=app|lib -P proj-template.cmake
+
 TODO: add versioning support, config header generation with version info.
 
 ## References
 https://cliutils.gitlab.io/modern-cmake/chapters/basics/structure.html
+
 https://gitlab.com/CLIUtils/modern-cmake/-/tree/master/examples/extended-project
