@@ -41,7 +41,7 @@ file(WRITE "${PROJ_DIR}/.gitignore" "build/\n")
 configure_file("${TEMPLATES_DIR}/src/CMakeLists_${PROJ_TYPE}.txt.in" "${PROJ_DIR}/src/CMakeLists.txt" @ONLY)
 
 configure_file("${TEMPLATES_DIR}/src/app_lib.c" "${PROJ_DIR}/src/${PROJ_NAME}.c" @ONLY)
-configure_file("${TEMPLATES_DIR}/include/proj_name/app_lib.h" "${PROJ_DIR}/include/${PROJ_NAME}/${PROJ_NAME}.h" @ONLY)
+configure_file("${TEMPLATES_DIR}/src/include/proj_name/app_lib.h" "${PROJ_DIR}/src/include/${PROJ_NAME}/${PROJ_NAME}.h" @ONLY)
 
 # test dir
 configure_file("${TEMPLATES_DIR}/test/CMakeLists.txt.in" "${PROJ_DIR}/test/CMakeLists.txt" @ONLY)
