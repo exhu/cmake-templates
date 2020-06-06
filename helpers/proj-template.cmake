@@ -14,7 +14,7 @@ set(APP_DIR_NAME "unknown")
 
 message(VERBOSE "PROJ_TYPE=${PROJ_TYPE}")
 if(PROJ_TYPE STREQUAL "app")
-    set(APP_DIR_NAME "app")
+    set(APP_DIR_NAME "apps")
 elseif(PROJ_TYPE STREQUAL "lib")
     set(APP_DIR_NAME "examples")
 else()
@@ -44,12 +44,12 @@ configure_file("${TEMPLATES_DIR}/src/app_lib.c" "${PROJ_DIR}/src/${PROJ_NAME}.c"
 configure_file("${TEMPLATES_DIR}/src/include/proj_name/app_lib.h" "${PROJ_DIR}/src/include/${PROJ_NAME}/${PROJ_NAME}.h" @ONLY)
 
 # test dir
-configure_file("${TEMPLATES_DIR}/test/CMakeLists.txt.in" "${PROJ_DIR}/test/CMakeLists.txt" @ONLY)
-configure_file("${TEMPLATES_DIR}/test/test1.c" "${PROJ_DIR}/test/test1.c" @ONLY)
-configure_file("${TEMPLATES_DIR}/test/test2.c" "${PROJ_DIR}/test/test2.c" @ONLY)
+configure_file("${TEMPLATES_DIR}/tests/CMakeLists.txt.in" "${PROJ_DIR}/tests/CMakeLists.txt" @ONLY)
+configure_file("${TEMPLATES_DIR}/tests/test1.c" "${PROJ_DIR}/tests/test1.c" @ONLY)
+configure_file("${TEMPLATES_DIR}/tests/test2.c" "${PROJ_DIR}/tests/test2.c" @ONLY)
 
 # app/examples dirs
-configure_file("${TEMPLATES_DIR}/app/CMakeLists_${PROJ_TYPE}.txt.in" "${PROJ_DIR}/${APP_DIR_NAME}/CMakeLists.txt" @ONLY)
-configure_file("${TEMPLATES_DIR}/app/main.c" "${PROJ_DIR}/${APP_DIR_NAME}/main.c" @ONLY)
+configure_file("${TEMPLATES_DIR}/apps/CMakeLists_${PROJ_TYPE}.txt.in" "${PROJ_DIR}/${APP_DIR_NAME}/CMakeLists.txt" @ONLY)
+configure_file("${TEMPLATES_DIR}/apps/main.c" "${PROJ_DIR}/${APP_DIR_NAME}/main.c" @ONLY)
 
 message(STATUS "Finished.")
